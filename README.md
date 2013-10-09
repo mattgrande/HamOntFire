@@ -4,7 +4,7 @@
 
 This site pulls data from the Hamilton Fire Service's Twitter account, [@HFS_Incidents](https://twitter.com/HFS_Incidents). I thought it was great that HFS was providing this information, but I wanted to have a better idea where things were happening.
 
-## Why isn't it broken?
+## Why isn't it working?
 
 HamOntFire was written when using the Twitter API version 1 was deprecated, but still live. Twitter has since fully removed API 1 in favour of 1.1. This means I'll have to get a site key and all that junk.
 
