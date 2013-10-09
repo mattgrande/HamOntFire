@@ -1,0 +1,31 @@
+﻿<h2>About</h2>
+
+<div class="about">
+    <p class="query">What is this?</p>
+    <p>
+        This site pulls data from the Hamilton Fire Service's Twitter account, <a href="https://twitter.com/HFS_Incidents">&#64;HFS_Incidents</a>.  I thought it was great that HFS was providing this information, but I wanted to have a better idea <i>where</i> things were happening.
+    </p>
+    <p class="query">Who made this?</p>
+    <p>
+        Matt Grande is a software developer from Hamilton, Ontario.  He works in C# and Ruby on Rails. He is overweight and has bad hair.
+    </p>
+    <p>
+        <a href="https://twitter.com/mattgrande">Twitter</a> | <a href="http://mattgrande.wordpress.com/">Blog</a> | <a href="http://www.linkedin.com/in/mattgrande">LinkedIn</a> | <a href="http://stackoverflow.com/users/74727/matt-grande">StackOverflow</a> | <a href="mailto:matt.grande@gmail.com">Email</a>
+    </p>
+    <p class="query">What's the tech running it?</p>
+    <ul>
+        <li>The site is programmed in C#</li>
+        <li>The web framework is ASP.Net MVC 3.0</li>
+        <li>Data is stored in <a href="http://ravendb.net/">RavenDB</a> hosted by <a href="https://ravenhq.com/">RavenHQ</a></li>
+        <li>Hosting is provided by <a href="https://appharbor.com/">AppHarbor</a></li>
+        <li>The tweets are pulled using the <a href="https://dev.twitter.com/docs/api/1/get/statuses/user_timeline">Twitter REST API</a>.  Yes, I'm still using Version 1.  Yes, I know it's deprecated.  Yes, I'm planning on jumping to Version 1.1.  No, I'm not looking forward to it.</li>
+        <li>Geocoding &amp; maps are provided by the <a href="https://developers.google.com/maps/location-based-apps">Google Maps Places API</a>.</li>
+        <li>Real time updating is provided by <a href="http://signalr.net/">SignalR</a>.</li>
+        <li>Graphs are provided by <a href="http://www.highcharts.com/">HighchartsJS</a>.</li>
+        <li>Special thanks to Dylan Vester for his excellent article on <a href="http://dylanvester.com/post/Creating-Heat-Maps-with-NET-20-(C-Sharp).aspx">creating heat maps with .Net</a>.</li>
+    </ul>
+    <p class="query">How can I help?</p>
+    <p>
+        Do you have a suggestion for a feature? Stumble across a bug?  Either submit a bug, or fix it yourself!  Download the code from <a href="https://bitbucket.org/mattgrande/hamontfire">bitbucket</a> using Mercurial.
+    </p>
+</div>

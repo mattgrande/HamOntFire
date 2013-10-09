@@ -1,0 +1,118 @@
+﻿@using HamOntFire.Web.Controllers
+@model StatisticsViewModel
+
+<h2>Statistics</h2>
+
+<h3>Most common event types</h3>
+
+<div>
+    <div style="float: left;">
+        <table>
+            @foreach (var result in Model.EventCountByType)
+            {
+                <tr>
+                    <td>@result.Name</td>
+                    <td style="text-align:right">@result.Count</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div id="container" style="width: 75%; height: 400px; margin: 0 auto;"></div>
+</div>
+
+<div style="clear: both"></div>
+
+<h3>Average Number of Units per Event Type</h3>
+
+<div>
+    <div id="container2"></div>
+</div>
+
+<h3>Heat Map</h3>
+
+Filter By Type: @Html.DropDownList("ddlEventTypes", Model.EventTypes, new {@class="ddl"})
+<br/>
+<img src="@Url.Action("HeatMap")" id="heatMap" alt="Heat Map" />
+
+<script type="text/javascript">
+var model = @Html.Raw( Model.EventCountByType.ToJson() );
+var data = [];
+for (var i = 0; i < model.length; i++) {
+    data[i] = [model[i].Name, model[i].Count];
+}
+var chart = new Highcharts.Chart({
+    chart: {
+        renderTo: 'container'
+    },
+    title: {
+        text: ''
+    },
+    xAxis: {
+        categories: categories
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Number'
+        }
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage}%</b>', percentageDecimals: 1
+    },
+    plotOptions: {
+    pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+            enabled: true,
+            color: '#000000',
+            connectorColor: '#000000',
+            formatter: function() {
+                return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';
+            }
+        }
+    }
+},
+series: [{
+    type: 'pie',
+    name: 'Browser share',
+    data: data
+    }]
+});
+
+var model2 = @Html.Raw( Model.AverageUnitsPerEventType.ToJson() );
+var categories = [];
+var data2 = [];
+for (var i = 0; i < model.length; i++) {
+    categories[i] = model2[i].Name;
+    data2[i] = model2[i].UnitsPerType;
+}
+
+var chart2 = new Highcharts.Chart({
+    chart: {
+        renderTo: 'container2',
+        type: 'column',
+        margin: [50, 50, 50, 50]
+    },
+    title: { text: 'TITLE GOES HERE' },
+    xAxis: {
+        categories: categories,
+    },
+    yAxis: {
+        min: 0,
+        title: { text: 'Avg Units per Event' }
+    },
+    legend: { enabled: false },
+    tooltip: {
+        formatter: function() {
+            return '<b>' + this.x + '</b><br/>' +
+                Highcharts.numberFormat(this.y, 1) + ' units';
+        }
+    },
+    series: [{
+        name: 'Units',
+        data: data2,
+        dataLabels: { enabled: false }
+    }]
+});
+</script>
