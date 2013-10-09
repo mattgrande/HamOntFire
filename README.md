@@ -4,6 +4,12 @@
 
 This site pulls data from the Hamilton Fire Service's Twitter account, [@HFS_Incidents](https://twitter.com/HFS_Incidents). I thought it was great that HFS was providing this information, but I wanted to have a better idea where things were happening.
 
+## Why isn't it broken?
+
+HamOntFire was written when using the Twitter API version 1 was deprecated, but still live. Twitter has since fully removed API 1 in favour of 1.1. This means I'll have to get a site key and all that junk.
+
+It's something I'm planning on doing; just not something I've done yet.
+
 ## Who made this?
 
 Matt Grande is a software developer from Hamilton, Ontario. He works in C# and Ruby on Rails. He is overweight and has bad hair.
@@ -24,4 +30,4 @@ Matt Grande is a software developer from Hamilton, Ontario. He works in C# and R
 
 ## How can I help?
 
-Do you have a suggestion for a feature? Stumble across a bug? Either submit a bug, or fix it yourself! Download the code from [bitbucket](https://bitbucket.org/mattgrande/hamontfire) using Mercurial.
+Do you have a suggestion for a feature? Stumble across a bug? Either submit a bug, or fix it yourself! Download the code from [GitHub](https://bitbucket.org/mattgrande/hamontfire).
